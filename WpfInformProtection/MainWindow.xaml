@@ -15,6 +15,7 @@
         <RadioButton x:Name="radioButton" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
         <RadioButton x:Name="radioButton1" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211"/>
+        <Button x:Name="button2" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
 
     </Grid>
 </Window>
