@@ -29,5 +29,20 @@ namespace WpfInformProtection
         {
 
         }
+
+        private static int smesh = (int)'a';
+        private static int alphLength = 32;
+        public static string Encrypt (string text, string keyWord)
+        {
+            StringBuilder ans = new StringBuilder();
+            for (var i = 0; i < text.Length; i++)
+            {
+                int num = (text[i] + keyWord[i % keyWord.Length] - 2 * smesh);
+                char c = (char)(num + smesh);
+                ans.Append(c);
+            }
+            return ans.ToString();
+        }
+
     }
 }

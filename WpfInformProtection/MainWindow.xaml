@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Входной файл" HorizontalAlignment="Left" Margin="27,269,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bFileIn" Content="Входной файл" HorizontalAlignment="Left" Margin="27,269,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label" Content="... или указать путь к файлу" HorizontalAlignment="Left" Margin="51,226,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="394,31,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Выходной файл" HorizontalAlignment="Left" Margin="148,269,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="56" Margin="27,139,0,0" TextWrapping="Wrap" Text="Ввести текст" VerticalAlignment="Top" Width="211"/>
-        <RadioButton x:Name="radioButton" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
-        <RadioButton x:Name="radioButton1" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211"/>
-        <Button x:Name="button2" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+        <Button x:Name="bFileOut" Content="Выходной файл" HorizontalAlignment="Left" Margin="148,269,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbInput" HorizontalAlignment="Left" Height="56" Margin="27,139,0,0" TextWrapping="Wrap" Text="Ввести текст" VerticalAlignment="Top" Width="211"/>
+        <RadioButton x:Name="rbEncrypt" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
+        <RadioButton x:Name="rbDecrypt" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211"/>
+        <Button x:Name="bGo" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
 
     </Grid>
 </Window>
