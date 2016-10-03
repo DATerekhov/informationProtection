@@ -30,7 +30,7 @@ namespace WpfInformProtection
 
         }
 
-        private static int smesh = (int)'a';
+        private static int smesh = (int)'а';
         private static int alphLength = 32;
         public static string Encrypt (string text, string keyWord)
         {
@@ -46,7 +46,7 @@ namespace WpfInformProtection
 
         private void bGo_Click(object sender, RoutedEventArgs e)
         {
-            tbOutput.Text = Encrypt(tbInput.Text, "key");
+            tbOutput.Text = Encrypt(tbInput.Text, "ключ");
         }
     }
 }
