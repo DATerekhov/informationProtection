@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="bFileIn" Content="Входной файл" HorizontalAlignment="Left" Margin="27,269,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bFileIn" Content="Входной файл" HorizontalAlignment="Left" Margin="27,269,0,0" VerticalAlignment="Top" Click="bFileIn_Click"/>
         <Label x:Name="label" Content="... или указать путь к файлу" HorizontalAlignment="Left" Margin="51,226,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="394,31,0,0" VerticalAlignment="Top"/>
         <Button x:Name="bFileOut" Content="Выходной файл" HorizontalAlignment="Left" Margin="148,269,0,0" VerticalAlignment="Top"/>
