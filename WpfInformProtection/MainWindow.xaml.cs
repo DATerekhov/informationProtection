@@ -44,5 +44,9 @@ namespace WpfInformProtection
             return ans.ToString();
         }
 
+        private void bGo_Click(object sender, RoutedEventArgs e)
+        {
+            tbOutput.Text = Encrypt(tbInput.Text, "key");
+        }
     }
 }

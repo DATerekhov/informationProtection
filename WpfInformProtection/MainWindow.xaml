@@ -15,7 +15,7 @@
         <RadioButton x:Name="rbEncrypt" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
         <RadioButton x:Name="rbDecrypt" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211"/>
-        <Button x:Name="bGo" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+        <Button x:Name="bGo" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35" Click="bGo_Click"/>
 
     </Grid>
 </Window>
