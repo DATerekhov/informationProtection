@@ -27,14 +27,9 @@ namespace WpfInformProtection
             InitializeComponent();
         }
 
-        private void radioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private static int smesh = (int)'а';
-        private static int alphLength = 32;
-        public string inputText;
+        private const int smesh = (int) 'а';
+        private const int alphLength = 32;
+        private string inputText;
         public static string Encrypt (string text, string keyWord)
         {
             var ans = new StringBuilder();
@@ -42,7 +37,7 @@ namespace WpfInformProtection
             {
                 if (!text[i].Equals(' '))
                 {
-                    var num = ((text[i] + keyWord[i%keyWord.Length])%alphLength);
+                    var num = ((text[i] + keyWord[i%keyWord.Length]) % alphLength);
                     var c = (char) (num + smesh);
                     ans.Append(c);
                 }
@@ -75,18 +70,20 @@ namespace WpfInformProtection
 
         private void bGo_Click(object sender, RoutedEventArgs e)
         {
-            if (rbEncrypt.IsChecked != null && rbEncrypt.IsChecked.Value)
+            if (tbKey != null)
             {
-                tbOutput.Text = Encrypt(tbInput.Text, "ключ");
-            }
-            else
-            {
-                if (rbDecrypt.IsChecked != null && rbDecrypt.IsChecked.Value)
+                if (rbEncrypt.IsChecked != null && rbEncrypt.IsChecked.Value)
                 {
-                    tbOutput.Text = Decode(tbInput.Text, "ключ");
+                    tbOutput.Text = Encrypt(tbInput.Text, tbKey.Text);
+                }
+                else
+                {
+                    if (rbDecrypt.IsChecked != null && rbDecrypt.IsChecked.Value)
+                    {
+                        tbOutput.Text = Decode(tbInput.Text, tbKey.Text);
+                    }
                 }
             }
-           
         }
 
         private void bFileIn_Click(object sender, RoutedEventArgs e)
@@ -98,7 +95,7 @@ namespace WpfInformProtection
 
             if (myDialog.ShowDialog() == true)
             {
-                tbInput.Text = myDialog.FileName.ToString().Split('\\').Last();
+                tbInput.Text = myDialog.FileName.ToString();//Split('\\').Last();
                 Stream myStream = null;
 
                 if ((myStream = myDialog.OpenFile()) != null)
@@ -121,6 +118,16 @@ namespace WpfInformProtection
                 }
                 myStream.Close();
             }
+        }
+
+        private void tbResultFocus(object sender, RoutedEventArgs e)
+        {
+            tbOutput.Clear();
+        }
+
+        private void tbInputFocus(object sender, RoutedEventArgs e)
+        {
+            tbInput.Clear();
         }
     }
 }
