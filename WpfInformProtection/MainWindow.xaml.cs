@@ -40,9 +40,16 @@ namespace WpfInformProtection
             var ans = new StringBuilder();
             for (var i = 0; i < text.Length; i++)
             {
-                var num = ((text[i] + keyWord[i % keyWord.Length]) % alphLength);
-                var c = (char)(num + smesh);
-                ans.Append(c);
+                if (!text[i].Equals(' '))
+                {
+                    var num = ((text[i] + keyWord[i%keyWord.Length])%alphLength);
+                    var c = (char) (num + smesh);
+                    ans.Append(c);
+                }
+                else
+                {
+                    ans.Append(' ');
+                }
             }
             return ans.ToString();
         }
@@ -52,9 +59,16 @@ namespace WpfInformProtection
             var ans = new StringBuilder();
             for (var i = 0; i < text.Length; i++)
             {
-                var num = ((text[i] - keyWord[i % keyWord.Length] + alphLength) % alphLength);
-                var c = (char)(num + smesh);
-                ans.Append(c);
+                if (!text[i].Equals(' '))
+                {
+                    var num = ((text[i] - keyWord[i%keyWord.Length] + alphLength)%alphLength);
+                    var c = (char) (num + smesh);
+                    ans.Append(c);
+                }
+                else
+                {
+                    ans.Append(' ');
+                }
             }
             return ans.ToString();
         }
