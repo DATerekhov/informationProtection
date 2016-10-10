@@ -37,11 +37,23 @@ namespace WpfInformProtection
         public string inputText;
         public static string Encrypt (string text, string keyWord)
         {
-            StringBuilder ans = new StringBuilder();
+            var ans = new StringBuilder();
             for (var i = 0; i < text.Length; i++)
             {
-                int num = (text[i] + keyWord[i % keyWord.Length] - 2 * smesh);
-                char c = (char)(num + smesh);
+                var num = ((text[i] + keyWord[i % keyWord.Length]) % alphLength);
+                var c = (char)(num + smesh);
+                ans.Append(c);
+            }
+            return ans.ToString();
+        }
+
+        public static string Decode(string text, string keyWord)
+        {
+            var ans = new StringBuilder();
+            for (var i = 0; i < text.Length; i++)
+            {
+                var num = ((text[i] - keyWord[i % keyWord.Length] + alphLength) % alphLength);
+                var c = (char)(num + smesh);
                 ans.Append(c);
             }
             return ans.ToString();
@@ -49,13 +61,24 @@ namespace WpfInformProtection
 
         private void bGo_Click(object sender, RoutedEventArgs e)
         {
-            tbOutput.Text = Encrypt(tbInput.Text, "ключ");
+            if (rbEncrypt.IsChecked != null && rbEncrypt.IsChecked.Value)
+            {
+                tbOutput.Text = Encrypt(tbInput.Text, "ключ");
+            }
+            else
+            {
+                if (rbDecrypt.IsChecked != null && rbDecrypt.IsChecked.Value)
+                {
+                    tbOutput.Text = Decode(tbInput.Text, "ключ");
+                }
+            }
+           
         }
 
         private void bFileIn_Click(object sender, RoutedEventArgs e)
         {
             var myDialog = new OpenFileDialog();
-            myDialog.Filter = "Все файлы (*)|*.*";
+            myDialog.Filter = "Все файлы (*)|*.txt*";
             myDialog.CheckFileExists = true;
             myDialog.Multiselect = false;
 
@@ -76,7 +99,7 @@ namespace WpfInformProtection
                         if (counter > 1)
                         {
                             tbInput.Text = "";
-                            MessageBox.Show("Error");
+                            MessageBox.Show("Error. Should be one string");
                             return;
                         }
                         inputText = line;
