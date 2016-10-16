@@ -30,12 +30,30 @@ namespace WpfInformProtection
         private const int smesh = (int) 'а';
         private const int alphLength = 32;
         private string inputText;
+
         public static string Encrypt (string text, string keyWord)
         {
             var ans = new StringBuilder();
             for (var i = 0; i < text.Length; i++)
             {
-                if (!text[i].Equals(' '))
+                switch (text[i])
+                {
+                    case ' ':
+                        ans.Append(' ');
+                        break;
+                    case '.':
+                        ans.Append('.');
+                        break;
+                    case ',':
+                        ans.Append(',');
+                        break;
+                    default:
+                        var num = ((text[i] + keyWord[i % keyWord.Length]) % alphLength);
+                        var c = (char)(num + smesh);
+                        ans.Append(c);
+                        break;
+                }
+                /*if (!text[i].Equals(' ') && !text[i].Equals('.') && !text[i].Equals(','))
                 {
                     var num = ((text[i] + keyWord[i%keyWord.Length]) % alphLength);
                     var c = (char) (num + smesh);
@@ -44,7 +62,7 @@ namespace WpfInformProtection
                 else
                 {
                     ans.Append(' ');
-                }
+                }*/
             }
             return ans.ToString();
         }
@@ -54,6 +72,24 @@ namespace WpfInformProtection
             var ans = new StringBuilder();
             for (var i = 0; i < text.Length; i++)
             {
+                switch (text[i])
+                {
+                    case ' ':
+                        ans.Append(' ');
+                        break;
+                    case '.':
+                        ans.Append('.');
+                        break;
+                    case ',':
+                        ans.Append(',');
+                        break;
+                    default:
+                        var num = ((text[i] - keyWord[i % keyWord.Length] + alphLength) % alphLength);
+                        var c = (char)(num + smesh);
+                        ans.Append(c);
+                        break;
+                }
+                /*
                 if (!text[i].Equals(' '))
                 {
                     var num = ((text[i] - keyWord[i%keyWord.Length] + alphLength)%alphLength);
@@ -63,7 +99,7 @@ namespace WpfInformProtection
                 else
                 {
                     ans.Append(' ');
-                }
+                }*/
             }
             return ans.ToString();
         }
@@ -122,12 +158,18 @@ namespace WpfInformProtection
 
         private void tbResultFocus(object sender, RoutedEventArgs e)
         {
-            tbOutput.Clear();
+            
         }
 
         private void tbInputFocus(object sender, RoutedEventArgs e)
         {
-            tbInput.Clear();
+            
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Casis casis = new Casis();
+            tbOutput.Text = casis.Do(tbInput.Text.ToString());
         }
     }
 }

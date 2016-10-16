@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mdi="clr-namespace:WPF.MDI;assembly=WPF.MDI"
         xmlns:local="clr-namespace:WpfInformProtection"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
@@ -14,8 +13,9 @@
         <RadioButton x:Name="rbDecrypt" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211" GotFocus="tbResultFocus"/>
         <Button x:Name="bGo" Content="Виженер" HorizontalAlignment="Left" Margin="140,76,0,0" VerticalAlignment="Top" Click="bGo_Click"/>
-        <TextBox x:Name="tbKey" HorizontalAlignment="Left" Height="23" Margin="86,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67"/>
+        <TextBox x:Name="tbKey" HorizontalAlignment="Left" Height="23" Margin="86,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Text="ключ"/>
         <Label Content="Ключ" HorizontalAlignment="Left" Margin="27,216,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Касиски" HorizontalAlignment="Left" Margin="222,76,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Window>
