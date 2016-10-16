@@ -3,19 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mdi="clr-namespace:WPF.MDI;assembly=WPF.MDI"
         xmlns:local="clr-namespace:WpfInformProtection"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="bFileIn" Content="Входной файл" HorizontalAlignment="Left" Margin="27,269,0,0" VerticalAlignment="Top" Click="bFileIn_Click"/>
-        <Label x:Name="label" Content="... или указать путь к файлу" HorizontalAlignment="Left" Margin="51,226,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="394,31,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="bFileOut" Content="Выходной файл" HorizontalAlignment="Left" Margin="148,269,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbInput" HorizontalAlignment="Left" Height="56" Margin="27,139,0,0" TextWrapping="Wrap" Text="Ввести текст" VerticalAlignment="Top" Width="211"/>
-        <RadioButton x:Name="rbEncrypt" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
+        <Label x:Name="label1" Content="Label test" HorizontalAlignment="Left" Margin="394,31,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbInput" HorizontalAlignment="Left" Height="56" Margin="27,139,0,0" TextWrapping="Wrap" Text="Ввести текст" VerticalAlignment="Top" Width="211" GotFocus="tbInputFocus"/>
+        <RadioButton x:Name="rbEncrypt" Content="Зашифровать" HorizontalAlignment="Left" Margin="27,72,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbDecrypt" Content="Расшифровать" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211"/>
-        <Button x:Name="bGo" Content="GO" HorizontalAlignment="Left" Margin="174,72,0,0" VerticalAlignment="Top" Height="35" Width="35" Click="bGo_Click"/>
+        <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="56" Margin="273,139,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top" Width="211" GotFocus="tbResultFocus"/>
+        <Button x:Name="bGo" Content="Виженер" HorizontalAlignment="Left" Margin="140,76,0,0" VerticalAlignment="Top" Click="bGo_Click"/>
+        <TextBox x:Name="tbKey" HorizontalAlignment="Left" Height="23" Margin="86,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67"/>
+        <Label Content="Ключ" HorizontalAlignment="Left" Margin="27,216,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
