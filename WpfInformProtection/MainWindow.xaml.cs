@@ -30,6 +30,7 @@ namespace WpfInformProtection
         private const int smesh = (int) 'а';
         private const int alphLength = 32;
         private string inputText;
+        public string rusAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
         public static string Encrypt (string text, string keyWord)
         {
@@ -170,6 +171,35 @@ namespace WpfInformProtection
         {
             Casis casis = new Casis();
             tbOutput.Text = casis.Do(tbInput.Text.ToString());
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var freedman = new Freedman(tbInput.Text);
+            var result = freedman.CalculateKeyLength(16);
+            var stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < 5; i++)
+            {
+                stringBuilder.Append(result[i].Key.ToString());
+                stringBuilder.Append(" ");
+            }
+
+            tbOutput.Text = stringBuilder.ToString();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            var frequency = new Frequency(tbInput.Text, rusAlphabet);
+            var dictionary = new Dictionary<char, double>();
+            dictionary = frequency.CountFrequency();
+
+            StringBuilder ans = new StringBuilder();
+            foreach (var v in dictionary)
+            {
+                ans.AppendLine(v.Key.ToString() + ' ' + '=' + ' ' + v.Value.ToString() + '%');
+            }
+            tbOutput.Text = ans.ToString();
         }
     }
 }
